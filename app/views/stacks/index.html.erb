@@ -1,0 +1,21 @@
+<h1>Listing stacks</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+<tbody>
+  <%= render @stacks %>
+</tbody>
+
+</table>
+
+<br />
+
+<%= link_to 'New Stack', new_stack_path %>
