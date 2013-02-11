@@ -1,6 +1,8 @@
 	<tr>
 	  <td><%= stack.description %></td>
-	  <td><%= link_to 'Show', stack %></td>
-	  <td><%= link_to 'Edit', edit_stack_path(stack) %></td>
-	  <td><%= link_to 'Destroy', stack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  <% if current_user == stack.user %>
+		  <td><%= link_to 'Show', stack %></td>
+		  <td><%= link_to 'Edit', edit_stack_path(stack) %></td>
+		  <td><%= link_to 'Destroy', stack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  <%end%>
 	</tr>

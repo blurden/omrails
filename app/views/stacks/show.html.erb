@@ -4,8 +4,13 @@
 			<p>
 			  <%= @stack.description %>
 			</p>
-			<%= link_to 'Edit', edit_stack_path(@stack) %> |
-			<%= link_to 'Back', stacks_path %>
+			<p>
+			  <%= @stack.user.name %>
+			</p>
+			<% if current_user == @stack.user %>
+				<%= link_to 'Edit', edit_stack_path(@stack) %> |
+				<%= link_to 'Back', stacks_path %>
+			<% end %>
 		</div>
 	</div>
 </div>

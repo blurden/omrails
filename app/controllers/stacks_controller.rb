@@ -1,4 +1,7 @@
 class StacksController < ApplicationController
+  # devise authentication
+  before_filter :authenticate_user!, except: [:index]
+
   # GET /stacks
   # GET /stacks.json
   def index
@@ -24,7 +27,7 @@ class StacksController < ApplicationController
   # GET /stacks/new
   # GET /stacks/new.json
   def new
-    @stack = Stack.new
+    @stack = current_user.stacks.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +37,13 @@ class StacksController < ApplicationController
 
   # GET /stacks/1/edit
   def edit
-    @stack = Stack.find(params[:id])
+    @stack = current_user.stacks.find(params[:id])
   end
 
   # POST /stacks
   # POST /stacks.json
   def create
-    @stack = Stack.new(params[:stack])
+    @stack = current_user.stacks.new(params[:stack])
 
     respond_to do |format|
       if @stack.save
@@ -56,7 +59,7 @@ class StacksController < ApplicationController
   # PUT /stacks/1
   # PUT /stacks/1.json
   def update
-    @stack = Stack.find(params[:id])
+    @stack = current_user.stacks.find(params[:id])
 
     respond_to do |format|
       if @stack.update_attributes(params[:stack])
@@ -72,7 +75,7 @@ class StacksController < ApplicationController
   # DELETE /stacks/1
   # DELETE /stacks/1.json
   def destroy
-    @stack = Stack.find(params[:id])
+    @stack = current_user.stacks.find(params[:id])
     @stack.destroy
 
     respond_to do |format|
