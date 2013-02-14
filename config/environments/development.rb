@@ -38,4 +38,7 @@ Omrails::Application.configure do
   # define default url for devise
   # In production, :host should be set to the actual host of your application.
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # paperclip development environment path
+  Paperclip.options[:command_path] = "/usr/local/bin/identify"
 end

@@ -1,8 +1,15 @@
 	<tr>
+		<td><%= image_tag stack.image(:thumb) %></td>
 	  <td><%= stack.description %></td>
+	  <td><%= stack.created_at.strftime("%d %b %Y") %></td>
+	  <td><%= link_to stack.user.name, stack %>
 	  <% if current_user == stack.user %>
 		  <td><%= link_to 'Show', stack %></td>
 		  <td><%= link_to 'Edit', edit_stack_path(stack) %></td>
 		  <td><%= link_to 'Destroy', stack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  <%else%>
+		  <td></td>
+		  <td></td>
+		  <td></td>
 	  <%end%>
 	</tr>

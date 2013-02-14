@@ -13,6 +13,7 @@ class StacksController < ApplicationController
     end
   end
 
+
   # GET /stacks/1
   # GET /stacks/1.json
   def show
@@ -23,6 +24,8 @@ class StacksController < ApplicationController
       format.json { render json: @stack }
     end
   end
+
+
 
   # GET /stacks/new
   # GET /stacks/new.json
@@ -35,6 +38,7 @@ class StacksController < ApplicationController
     end
   end
 
+  # GET /stacks/1
   # GET /stacks/1/edit
   def edit
     @stack = current_user.stacks.find(params[:id])
