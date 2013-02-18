@@ -1,15 +1,19 @@
-	<tr>
-		<td><%= image_tag stack.image(:thumb) %></td>
-	  <td><%= stack.description %></td>
-	  <td><%= stack.created_at.strftime("%d %b %Y") %></td>
-	  <td><%= link_to stack.user.name, stack %>
-	  <% if current_user == stack.user %>
-		  <td><%= link_to 'Show', stack %></td>
-		  <td><%= link_to 'Edit', edit_stack_path(stack) %></td>
-		  <td><%= link_to 'Destroy', stack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	  <%else%>
-		  <td></td>
-		  <td></td>
-		  <td></td>
-	  <%end%>
-	</tr>
+<div class="box">
+<%= link_to (image_tag stack.image(:thumb)), stack %>
+<p class="description">
+	<%= stack.description %>
+</p>
+<p>
+	<strong>
+		Posted by: <%= stack.user.name %>
+	</strong>
+</p>
+<%= stack.created_at.strftime("%d %b %Y") %>
+<%= link_to 'Show', stack %>
+<% if current_user == stack.user %>
+	<p>
+		<%= link_to 'Edit', edit_stack_path(stack) %>
+		<%= link_to 'Destroy', stack, method: :delete, data: { confirm: 'Are you sure?' } %>
+	</p>
+<% end %>
+</div>

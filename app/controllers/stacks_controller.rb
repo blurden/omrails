@@ -5,7 +5,7 @@ class StacksController < ApplicationController
   # GET /stacks
   # GET /stacks.json
   def index
-    @stacks = Stack.all
+    @stacks = Stack.order("created_at desc")
 
     respond_to do |format|
       format.html # index.html.erb
