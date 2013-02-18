@@ -10,11 +10,11 @@ Omrails::Application.routes.draw do
 
   
   # if the user is logged in then make stacks#index root "home"
-  authenticated :user do
-    root :to => 'stacks#index'
-  end
+  # authenticated :user do
+  #  root :to => 'stacks#index'
+  # end
   # if user not logged in then make pages#home root "home"
-  root :to => 'pages#home'
+  root :to => 'stacks#index'
   
 
 
